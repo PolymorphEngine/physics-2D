@@ -27,7 +27,7 @@ bool polymorph::engine::physics2D::RectColliderImpl::checkCollision(
     throw UnknownColliderTypeException("ColliderBox2dImpl::checkCollision: unknown collider type");
 }
 
-polymorph::engine::physics2D::RectColliderImpl::RectColliderImpl(std::shared_ptr<myxmlpp::Node> node, engine::GameObject entity)
+polymorph::engine::physics2D::RectColliderImpl::RectColliderImpl(engine::GameObject entity, std::shared_ptr<myxmlpp::Node> node)
         : RectColliderComponent(node, entity)
 {
 
@@ -41,4 +41,16 @@ void polymorph::engine::physics2D::RectColliderImpl::debugDraw()
 void polymorph::engine::physics2D::RectColliderImpl::setColliderPosition()
 {
     //TODO: is it needed ?
+}
+
+void polymorph::engine::physics2D::RectColliderImpl::build()
+{
+    _setProperty("size", size);
+    _setProperty("offset", offset);
+}
+
+void polymorph::engine::physics2D::RectColliderImpl::saveAll()
+{
+    saveProperty("size", size);
+    saveProperty("offset", offset);
 }

@@ -25,7 +25,7 @@ bool polymorph::engine::physics2D::CircleColliderImpl::checkCollision(Collider2d
     throw UnknownColliderTypeException("CircleCollider::checkCollision: unknown collider type");
 }
 
-polymorph::engine::physics2D::CircleColliderImpl::CircleColliderImpl(std::shared_ptr<myxmlpp::Node> node, engine::GameObject gameObject)
+polymorph::engine::physics2D::CircleColliderImpl::CircleColliderImpl(engine::GameObject gameObject, std::shared_ptr<myxmlpp::Node> node)
 : CircleColliderComponent(node, gameObject)
 {
 }
@@ -38,4 +38,16 @@ void polymorph::engine::physics2D::CircleColliderImpl::debugDraw()
 void polymorph::engine::physics2D::CircleColliderImpl::setColliderPosition()
 {
     //TODO: is it needed ?
+}
+
+void polymorph::engine::physics2D::CircleColliderImpl::build()
+{
+    _setProperty("radius", radius);
+    _setProperty("offset", offset);
+}
+
+void polymorph::engine::physics2D::CircleColliderImpl::saveAll()
+{
+    saveProperty("radius", radius);
+    saveProperty("offset", offset);
 }

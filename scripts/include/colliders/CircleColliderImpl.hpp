@@ -8,7 +8,7 @@ namespace polymorph::engine::physics2D
     class CircleColliderImpl : public CircleColliderComponent
     {
         public:
-            explicit CircleColliderImpl(std::shared_ptr<myxmlpp::Node> node, polymorph::engine::GameObject gameObject);
+            explicit CircleColliderImpl(polymorph::engine::GameObject gameObject, std::shared_ptr<myxmlpp::Node> node);
 
             ~CircleColliderImpl() override = default;
 
@@ -20,7 +20,11 @@ namespace polymorph::engine::physics2D
 
             void setColliderPosition() override;
 
-            ///////////////////////////--------------------------///////////////////////////
+            void build() override;
+
+            void saveAll() override;
+
+        ///////////////////////////--------------------------///////////////////////////
 
     };
 }

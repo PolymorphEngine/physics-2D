@@ -14,7 +14,7 @@ namespace polymorph::engine::physics2D
     class RectColliderImpl : public RectColliderComponent
     {
         public:
-            explicit RectColliderImpl(std::shared_ptr<myxmlpp::Node> node, polymorph::engine::GameObject gameObject);
+            explicit RectColliderImpl(polymorph::engine::GameObject gameObject, std::shared_ptr<myxmlpp::Node> node);
 
             ~RectColliderImpl() override = default;
 
@@ -23,7 +23,11 @@ namespace polymorph::engine::physics2D
 
             void setColliderPosition() override;
 
-        protected:
+        void build() override;
+
+        void saveAll() override;
+
+    protected:
             bool checkCollision(Collider2d collider) override;
     };
 }
