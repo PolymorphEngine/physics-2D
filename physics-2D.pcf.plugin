@@ -1,4 +1,4 @@
-<Plugin name="plugin-template">
+<Plugin name="physics-2D">
     <Templates>
     </Templates>
     <Prefabs>

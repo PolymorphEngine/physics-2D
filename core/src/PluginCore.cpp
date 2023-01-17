@@ -37,7 +37,7 @@ namespace polymorph::engine::api
 
     std::unique_ptr<AComponentFactory> PluginCore::createComponentFactory()
     {
-        return std::unique_ptr<AComponentFactory>(new ComponentFactory());
+        return std::unique_ptr<AComponentFactory>(new Phys2DFactory());
     }
 
     std::unique_ptr<ASerializableObjectFactory> PluginCore::createSerializableObjectFactory()
